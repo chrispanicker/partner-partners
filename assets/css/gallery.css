@@ -1,0 +1,29 @@
+#gallery{
+	padding: 5vw;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: flex-start;
+}
+#gallery .media{
+	min-width: 60vw;
+	max-width: 90vw;
+	width: 90vw;
+	transition: width .2s ease;
+	padding: 1vh 0 0 0;
+}
+/*
+#gallery .zoom{
+	padding: 0vw;
+	position: fixed;
+	top: 0;
+	width: 100vw;
+}
+
+#gallery .media:hover{
+	cursor: zoom-in;
+}
+
+#gallery .zoom:hover{
+	cursor: zoom-out;
+}*/

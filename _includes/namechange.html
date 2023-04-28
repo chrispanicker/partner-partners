@@ -1,0 +1,75 @@
+
+
+<script type="text/javascript">
+	//hello curious friend :) 
+	//this module is what makes the logo letters change fonts on hover
+	
+	let logoDiv = document.querySelector("#logo");
+	let changeStrs = [{{ page.strs }}];
+	let changeEls = document.querySelectorAll('change');
+	let fontList = ["FrGth-Cond", "sans-serif", 'baldur', 'hobeaux-roco', 'picnic', 'sans-black', 'bodoni-mt', 'serif', 'FrGth-DemiCond'];
+	let me = "Chris\xa0Panicker";
+	
+	
+	//-------------------------------------------------------------
+	class fontChange {
+	
+		constructor(str, parent, elementType){
+			this.str = str;
+			this.parent = parent;
+			this.element = elementType;
+			this.index = 0;
+		}
+	
+		render(){
+			// this.intervalStart();
+			this.loopThruStr();
+		}
+	
+		loopThruStr(){
+			for(let i=0; i<this.str.length; i++){
+				let thisLetter = document.createElement(this.element);
+				thisLetter.innerHTML = this.str[i];
+				thisLetter.addEventListener("mouseenter", () =>{
+					this.intervalStart(thisLetter);
+				})
+
+			// 	let randomInterval = setInterval(()=>{
+			// 	this.index++
+			// 		if(this.index>=fontList.length){
+			// 			this.index=0;
+			// 		}
+			// 		thisLetter.style.fontFamily = fontList[this.index];
+			// 		thisLetter.style.animation = "none";
+			// 	}, Math.random() * (40000 - 10000) + 2000)
+
+				this.parent.append(thisLetter);
+			};
+		}
+	
+		intervalStart(thisLetter){
+			let interval = setInterval(()=>{
+				this.index++
+				if(this.index>=fontList.length){
+					this.index=0;
+				}
+				thisLetter.style.fontFamily = fontList[this.index];
+				thisLetter.style.animation = "none";
+			}, 100)
+	
+			thisLetter.addEventListener("mouseleave", () => {
+				clearInterval(interval)
+			})
+		}
+	
+	
+	}
+	
+	// const logo = new fontChange(me, logoDiv, "h1");
+	// logo.render();
+	
+	for(let i=0; i<changeStrs.length; i++){
+		let oneStr = new fontChange(changeStrs[i], changeEls[i], "p");
+		oneStr.render();
+	}
+</script>

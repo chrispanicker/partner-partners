@@ -1,0 +1,15 @@
+<script>
+	let lastColor = localStorage.getItem("color");
+	let r = document.querySelector(':root');
+	r.style.setProperty('--primary', lastColor);
+
+	if(current===""){
+		let current = localStorage.setItem("current", "GRAPHIC DESIGNER");
+		let dropCurrent = document.querySelector(".current h2")
+		dropCurrent.innerHTML = current;
+	}else{
+		let current = localStorage.getItem("current");
+		let dropCurrent = document.querySelector(".current h2")
+		dropCurrent.innerHTML = current;
+	}
+</script>

@@ -1,0 +1,236 @@
+
+*{
+	margin: 0;
+	padding: 0;
+}
+
+h2{
+	letter-spacing: .4vh;
+	padding: 0;
+	margin: 0;
+}
+
+html, body{
+	font-family: "FrGth-Cond";
+
+}
+footer{
+	display: flex;
+	justify-content: flex-end;
+	width: 100%;
+	position: fixed;
+	padding-bottom: 5vh;
+	padding-right: 5vh;
+	bottom: 0;
+	right: 0;
+	background-image: linear-gradient(180deg, rgba(0, 0, 0, 0), var(--secondary));
+}
+
+footer h2{
+	text-transform: uppercase;
+	position: fixed;
+	left: 10vh;
+	font-family: "FrGth-Cond";
+	font-size: 2vh;
+	background: none;
+	letter-spacing: 0;
+	color: var(--primary);
+	border: none;
+	cursor: help;
+}
+
+
+footer button{
+	position: fixed;
+	font-family: "FrGth-Cond";
+	font-size: 2vh;
+	right: 10vh;
+	background: none;
+	color: var(--primary);
+	border: none;
+	cursor: pointer;
+}
+
+body{
+	background-color: var(--secondary);
+
+}
+
+.mainEl{
+	align-content: center;
+	display: grid;
+	grid-template-columns: 2fr 1fr;
+	margin: 20vh 10vh 0vh 10vh;
+}
+.mainEl h2{
+	line-height: .9;
+	padding: 1vh 2vh;
+}
+
+main h2 a{
+	color: var(--primary);
+	text-decoration: none;
+	transition: font-size .3s ease, color .3s ease, opacity .3s ease;
+}
+
+.hide{
+	display: none;
+}
+
+.media{
+	width: 100%;
+	height: auto;
+}
+
+.previewHeader{
+	font-size: 10vh;
+	color: var(--primary);
+}
+
+#preview{
+	transition: opacity .2s ease;
+	opacity: 100%;
+}
+
+.slowhide{
+	opacity: 0%;
+}
+
+.unhide{
+	display: inline-block;
+}
+/*nth child thing here for making everything smaller after the fifth??*/
+
+.mainEl h2 a:hover{
+	text-decoration: underline .3vh;
+	text-underline-offset: .5vh;
+}
+
+.mainEl h2 img{
+	display: none;
+	position: absolute;
+	margin: -1vh 0 0 0;
+	padding: 0 0 0 1vh;
+	height: 15vh;
+}
+
+/*main h2 a:hover + img{
+	margin-top: -5vh;
+	display: inline-block;
+	animation: shake .3s infinite;
+}*/
+
+#about{
+	margin: 20vh 50vh 10vh 10vh;
+	color: var(--primary);
+}
+
+#about p{
+	font-size: 2vh;
+	font-family: "FrGth-Book";
+}
+
+#about h2 change p{
+	margin: 0;
+	font-size: 10vh;
+	font-family: "FrGth-Cond";
+}
+
+
+#about h2{
+	font-size: 5vh;
+}
+
+#about a{
+		font-family: "FrGth-Book";
+	font-size: 1.5vh;
+	color: var(--primary);
+}
+
+change p{
+	font-size: inherit;
+	margin: 0;
+	display: inline-block;
+}
+
+
+change p:hover{
+	text-decoration: underline dotted;
+	cursor: pointer;
+}
+
+/*.hide{
+	display: none;
+}*/
+
+#active a{
+	font-size: 4vh;
+}
+
+#inactive a{
+	font-size: 2vh;
+	opacity: .5;
+}
+
+
+@keyframes shake{
+  0% {
+    transform: rotate(2deg);
+  }
+  25% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(-2deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+
+@media screen and (max-width: 1800px) {
+
+
+/*	#about{
+		margin: 10vh 5vh 10vh 5vh;
+	}*/
+
+
+}
+
+@media screen and (max-width: 950px) {
+	.mainEl{
+		margin: 22vh 0vh 0vh 3vh;
+	}
+
+	#preview{
+		display: none;
+	}
+
+  main h2 a{
+		font-size: 5vh;
+	}
+
+	#about{
+		margin: 10vh 5vh 10vh 5vh;
+	}
+
+	#about h2 change p{
+		font-size: 5vh;
+	}
+
+	#about h2{
+		font-size: 2.5vh;
+	}
+
+	#active a{
+		font-size: 5vh;
+	}
+	
+	#inactive a{
+		font-size: 2.5vh;
+		opacity: .5;
+	}
+
+}

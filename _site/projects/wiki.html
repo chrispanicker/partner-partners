@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>CHRIS PANICKER</title>
+	<link rel="stylesheet" type="text/css" href=../assets/css/colors.css>
+	<link rel="stylesheet" type="text/css" href="../assets/css/header.css">
+	<link rel="stylesheet" type="text/css" href="../assets/css/fonts.css">
+	<link rel="stylesheet" type="text/css" href="../assets/css/styles.css">
+	<link rel="stylesheet" type="text/css" href="../assets/css/projects.css">
+	<link rel="stylesheet" type="text/css" href="../assets/css/gallery.css">
+
+
+</head>
+<body>
+	<script>localStorage.setItem("current", "")</script>
+	<header>
+		<a href=../index.html>
+			<change></change>&nbsp;<change></change>
+		</a>
+	</header>
+<main>
+	<div class="projectHead">
+		<h2>THE RELIABILITY OF WIKIPEDIA</h2>
+		<div class="projectInfo">		
+			<div>
+				<p class="projectDesc">A BOOK ON WIKIPEDIA'S RELIABILITY, SOURCED FROM WIKIPEDIA.&nbsp;
+					<button id="more">MORE</button>
+				</p>
+				<p class="projectFull hide">This book's content is entirely based on the Wikipedia page of the same name. It features similar typesetting and the same fonts that Wikipedia uses by default. The W's gradually get more and more obstrusive as the book progresses.<br><br>Made with Adobe Illustrator and Indesign.</p>
+			</div>
+			<p>GRAPHICS</p>	
+		</div>	
+		<div class="projectInfo">
+			<p>2021</p>
+			<a href="" id="link"></a>
+		</div>
+	</div>
+
+
+	<span id ="gallery"></span>
+
+</main>
+<footer>
+	<a id="prev">
+	</a>
+	<a id="next">
+	</a>
+</footer>
+---
+
+---
+<script type="text/javascript">
+	let allFiles = ['wiki1.jpg', 'wiki2.jpg', 'wiki3.jpg', 'wiki4.jpg', 'wiki5.jpg', 'wiki6.jpg', 'wiki7.jpg', 'wiki8.jpg', 'wiki9.jpg'];
+	let gallery = document.querySelector("#gallery")
+
+	for(let i=0; i<allFiles.length; i++){
+		if(allFiles[i].includes(".mov")||allFiles[i].includes(".mp4")){
+			let vid = document.createElement("video");
+			vid.src="../assets/images/wikibook/" + allFiles[i];
+			vid.classList.add("media");
+			vid.controls=true;
+			vid.muted=true;
+			vid.autoplay=true;
+			vid.loop=true;
+			gallery.append(vid)
+		}else{
+			let img = document.createElement("img");
+			img.src = "../assets/images/wikibook/"+ allFiles[i];
+			img.classList.add("media");
+			gallery.append(img)
+		}
+
+	}
+</script>
+
+
+<script type="text/javascript">
+		let projectLink = "";
+		let link = document.querySelector("#link");
+		link.href = projectLink;
+	</script>
+
+
+<script type="text/javascript">
+	//hello curious friend :) 
+	//this module is what makes the logo letters change fonts on hover
+	
+	let logoDiv = document.querySelector("#logo");
+	let changeStrs = ["CHRIS", "PANICKER"];
+	let changeEls = document.querySelectorAll('change');
+	let fontList = ["FrGth-Cond", "sans-serif", 'baldur', 'hobeaux-roco', 'picnic', 'sans-black', 'bodoni-mt', 'serif', 'FrGth-DemiCond'];
+	let me = "Chris\xa0Panicker";
+	
+	
+	//-------------------------------------------------------------
+	class fontChange {
+	
+		constructor(str, parent, elementType){
+			this.str = str;
+			this.parent = parent;
+			this.element = elementType;
+			this.index = 0;
+		}
+	
+		render(){
+			// this.intervalStart();
+			this.loopThruStr();
+		}
+	
+		loopThruStr(){
+			for(let i=0; i<this.str.length; i++){
+				let thisLetter = document.createElement(this.element);
+				thisLetter.innerHTML = this.str[i];
+				thisLetter.addEventListener("mouseenter", () =>{
+					this.intervalStart(thisLetter);
+				})
+
+			// 	let randomInterval = setInterval(()=>{
+			// 	this.index++
+			// 		if(this.index>=fontList.length){
+			// 			this.index=0;
+			// 		}
+			// 		thisLetter.style.fontFamily = fontList[this.index];
+			// 		thisLetter.style.animation = "none";
+			// 	}, Math.random() * (40000 - 10000) + 2000)
+
+				this.parent.append(thisLetter);
+			};
+		}
+	
+		intervalStart(thisLetter){
+			let interval = setInterval(()=>{
+				this.index++
+				if(this.index>=fontList.length){
+					this.index=0;
+				}
+				thisLetter.style.fontFamily = fontList[this.index];
+				thisLetter.style.animation = "none";
+			}, 100)
+	
+			thisLetter.addEventListener("mouseleave", () => {
+				clearInterval(interval)
+			})
+		}
+	
+	
+	}
+	
+	// const logo = new fontChange(me, logoDiv, "h1");
+	// logo.render();
+	
+	for(let i=0; i<changeStrs.length; i++){
+		let oneStr = new fontChange(changeStrs[i], changeEls[i], "p");
+		oneStr.render();
+	}
+</script>
+<script type="text/javascript">
+	let hideMe = document.querySelector(".hide");
+	let more = document.querySelector("#more");
+
+	let moreBool = true;
+	more.addEventListener("click", ()=>{
+		hideMe.classList.toggle("hide")
+		if(moreBool){
+			more.innerHTML="LESS"
+		}else{
+			more.innerHTML="MORE"
+		}
+		moreBool = !moreBool;
+
+	})
+
+</script>
+<script>
+	var path = window.location.pathname;
+	var page = path.split("/").pop();
+	let projects = ["decks.html", "plant.html", "skate.html", "dilly.html", "lmh.html", "ten.html", "here.html", "blue.html"];
+	let projectTitles = ["Decks", "Plant St.", "Raphael's School of Skate", "Dilly Dally", "Losing My Head", "Ten Point Program", "Here Mag", "The Museum of Blue Note", "The Back of My Hand"];
+
+	let nextButton = document.querySelector("#next");
+	let prevButton = document.querySelector("#prev");
+
+	for(let i=0; i<projects.length; i++){
+		if(page===projects[i]){
+			if(i===0){
+				nextButton.href = `./${projects[i+1]}`;
+				prevButton.href = `../index.html`;
+	
+				nextButton.innerHTML = `NEXT: ${projectTitles[i+1]}`;
+				prevButton.innerHTML = `PREV: home`;
+			} else if(i>=projects.length-1){
+				nextButton.href = `../index.html`;
+				prevButton.href = `./${projects[i-1]}`;
+	
+				nextButton.innerHTML = `NEXT: Home`;
+				prevButton.innerHTML = `PREV: ${projectTitles[i-1]}`;
+			}else{
+				nextButton.href = `./${projects[i+1]}`;
+				prevButton.href = `./${projects[i-1]}`;
+	
+				nextButton.innerHTML = `NEXT: ${projectTitles[i+1]}`;
+				prevButton.innerHTML = `PREV: ${projectTitles[i-1]}`;
+			}
+		}
+	}
+</script>
+<script>
+	let lastColor = localStorage.getItem("color");
+	let r = document.querySelector(':root');
+	r.style.setProperty('--primary', lastColor);
+
+	if(current===""){
+		let current = localStorage.setItem("current", "GRAPHIC DESIGNER");
+		let dropCurrent = document.querySelector(".current h2")
+		dropCurrent.innerHTML = current;
+	}else{
+		let current = localStorage.getItem("current");
+		let dropCurrent = document.querySelector(".current h2")
+		dropCurrent.innerHTML = current;
+	}
+</script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<script>
+	var path = window.location.pathname;
+	var page = path.split("/").pop();
+	let projects = ["decks.html", "plant.html", "skate.html", "dilly.html", "lmh.html", "ten.html", "here.html", "blue.html"];
+	let projectTitles = ["Decks", "Plant St.", "Raphael's School of Skate", "Dilly Dally", "Losing My Head", "Ten Point Program", "Here Mag", "The Museum of Blue Note", "The Back of My Hand"];
+
+	let nextButton = document.querySelector("#next");
+	let prevButton = document.querySelector("#prev");
+
+	for(let i=0; i<projects.length; i++){
+		if(page===projects[i]){
+			if(i===0){
+				nextButton.href = `./${projects[i+1]}`;
+				prevButton.href = `../index.html`;
+	
+				nextButton.innerHTML = `NEXT: ${projectTitles[i+1]}`;
+				prevButton.innerHTML = `PREV: home`;
+			} else if(i>=projects.length-1){
+				nextButton.href = `../index.html`;
+				prevButton.href = `./${projects[i-1]}`;
+	
+				nextButton.innerHTML = `NEXT: Home`;
+				prevButton.innerHTML = `PREV: ${projectTitles[i-1]}`;
+			}else{
+				nextButton.href = `./${projects[i+1]}`;
+				prevButton.href = `./${projects[i-1]}`;
+	
+				nextButton.innerHTML = `NEXT: ${projectTitles[i+1]}`;
+				prevButton.innerHTML = `PREV: ${projectTitles[i-1]}`;
+			}
+		}
+	}
+</script>

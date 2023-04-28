@@ -1,0 +1,36 @@
+<!-- <script>
+	//Ripped these functions from P5's calculation.js
+	function constrain(n, low, high) {
+	  return Math.max(Math.min(n, high), low);
+	};
+	
+	function map(n, start1, stop1, start2, stop2) {
+	  const newval = (n - start1) / (stop1 - start1) * (stop2 - start2) + start2;
+	
+	  if (start2 < stop2) {
+	    return constrain(newval, start2, stop2);
+	  } else {
+	    return constrain(newval, stop2, start2);
+	  }
+	};
+
+	function getOffset(el) {
+	  const rect = el.getBoundingClientRect();
+	  return {
+	    left: rect.left + window.scrollX,
+	    top: rect.top + window.scrollY
+	  };
+	}
+
+
+
+	let scroll = document.addEventListener("scroll", ()=>{
+		let projects = document.querySelectorAll("main h2 a");
+		for(let i=0; i<projects.length; i++){
+			let offset = getOffset(projects[i]);
+			let mappedValue = map(offset.top, 0, 1920, 12, 2);
+			projects[i].style.fontSize = `${mappedValue}vh`;
+		}
+	})
+
+</script> -->

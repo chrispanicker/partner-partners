@@ -1,0 +1,156 @@
+<header>
+	<div class="chrisIsParent">
+	<a href={{"../../index.html"|| relativeurl }}>
+		<change></change>&nbsp;<change></change>&nbsp;&nbsp;
+		<h2 id="chrisIs"></a>IS A</h2>
+	</div>
+	<div class=dropdown>
+		
+		<div class=current>
+			<h2>GRAPHIC DESIGNER</h2>
+			<h2 id="arrow" class="up">&nbsp;&darr;</h2>
+		</div>
+		<div class="dropdown-content inactive">
+		
+		</div>
+	</div>
+
+</header>
+
+<script type="module">
+	let whatAmI = ["GRAPHIC DESIGNER", "ANIMATOR", "FRONT-END CODER", "AMATEUR SKATER", "JACK OF ALL TRADES", "ENTER YOUR OWN..."]; 
+	let whatAmIFilter = ["graphics", "anim", "web", "skate", "jack", "enter"]; 
+	let whatAmIColors = ["#32a852", "#a83232", "#327da8", "#32a887", "white", "#a86d32"]; 
+	let allCasesVowels = ["a","e","i","o","u","A", "E", "I", "O", "U"];
+	let current = document.querySelector(".current h2");
+	let dropParent = document.querySelector(".dropdown");
+	let dropContent = document.querySelector(".dropdown-content");
+	let chrisIs = document.querySelector('#chrisIs');
+	let arrow = document.querySelector("#arrow");
+
+	dropParent.addEventListener("click", ()=>{
+		dropContent.innerHTML="";
+		dropContent.classList.toggle("inactive");
+
+		//arrows
+		if(arrow.classList.contains("up")){
+			arrow.innerHTML = "&nbsp;&uarr;"
+			arrow.classList.toggle("up")
+		}else{
+			arrow.innerHTML = "&nbsp;&darr;"
+			arrow.classList.toggle("up")
+		}
+
+		//iterate thru array of what i am
+		for(let i=0; i<whatAmI.length; i++){
+			if (!current.innerHTML.includes(whatAmI[i])){
+				let h2 = document.createElement("h2");
+				h2.classList.add(`${whatAmIFilter[i]}`)
+				h2.dataset.filter = whatAmIFilter[i];
+				h2.innerHTML = whatAmI[i];
+				
+
+				if(whatAmI[i]==="ENTER YOUR OWN..."){
+					h2.addEventListener("click", ()=>{
+						//local storage for colors and whatamI
+						localStor(i);
+						//input element
+						current.innerHTML = "";
+						let input = document.createElement("input");
+						input.type = "text";
+						input.name = "whatAmI";
+						input.placeholder = "ENTER YOUR OWN..."
+						input.addEventListener("keyup", ()=>{
+							for(let j=0; j<allCasesVowels.length; j++){
+								if(!input.value.startsWith(allCasesVowels[j])){
+									dropWidth(false);
+								}else{
+									dropWidth(true);
+									break;
+								}
+							}
+						})
+						current.append(input)
+					})
+
+				}else if(whatAmI[i]==="JACK OF ALL TRADES"){
+					h2.addEventListener("click", (e)=>{
+						//colors
+						localStor(i);
+						current.innerHTML = whatAmI[i];
+						allData(e);
+					})
+				}else{
+					h2.addEventListener("click", (e)=>{
+						localStor(i);
+						current.innerHTML = whatAmI[i];
+						filterData(e, whatAmIFilter[i]);
+					})
+				}
+				dropContent.append(h2);
+			}		
+		}
+
+		// "a" or "an"
+		let vowels = ["A", "E", "I", "O", "U"];
+		let inputEl = document.querySelector("input");
+		for(let i=0; i<allCasesVowels.length; i++){
+			if(!current.innerHTML.includes("input")){
+				if(!current.innerHTML.startsWith(allCasesVowels[i])){
+					dropWidth(false);
+				} else if((current.innerHTML.startsWith(allCasesVowels[i]))){
+					//styling the divs
+					dropWidth(true);
+					break;
+				}
+			}
+			
+		}
+	})
+
+function localStor(i){
+	let r = document.querySelector(':root');
+	if(whatAmI[i]==="ENTER YOUR OWN..."){
+		r.style.setProperty('--primary', `${whatAmIColors[whatAmIColors.length-1]}`);
+		localStorage.setItem("color", `${whatAmIColors[whatAmIColors.length-1]}`);
+		localStorage.setItem("current", `${whatAmI[i]}`);
+	}else{	
+		r.style.setProperty('--primary', `${whatAmIColors[i]}`);
+		localStorage.setItem("color", `${whatAmIColors[i]}`);
+		localStorage.setItem("current", `${whatAmI[i]}`);
+	}
+
+}
+
+function dropWidth(bool){
+	if(bool){
+		chrisIs.innerHTML = "IS AN"
+	}else{
+		chrisIs.innerHTML = "IS A"
+	}
+}
+
+function filterData(e, filtertype){
+	let allProjects = document.querySelectorAll(".project");
+	let filter = e.target.dataset.filter; // grab the value in the event target's data-filter attribute
+
+	allProjects.forEach(project =>{
+		if(project.classList.contains(filter)){
+			project.id = "active";
+		}else if(!project.classList.contains(filter)){
+			project.id = "inactive";
+		}
+	})
+}
+
+function allData(e){
+	let allProjects = document.querySelectorAll(".project");
+	let filter = e.target.dataset.filter; // grab the value in the event target's data-filter attribute
+	allProjects.forEach(project =>{
+		project.id="active"
+
+	})
+}
+
+
+</script>

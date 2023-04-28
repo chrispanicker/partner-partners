@@ -1,0 +1,10 @@
+<script>
+	let aboutButton = document.querySelector("footer button")
+	let aboutSect = document.querySelector("#about")		
+	
+	aboutButton.addEventListener("click", ()=>{
+		const yOffset = -300; 
+		const y = aboutSect.getBoundingClientRect().top + window.pageYOffset + yOffset;
+		window.scrollTo({top: y, behavior: 'smooth'});
+	});
+</script>

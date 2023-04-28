@@ -1,0 +1,145 @@
+header{
+	letter-spacing: .15vh;
+	position: fixed;
+	top: 0vh;
+	background-image: linear-gradient(0deg, rgba(0, 0, 0, 0), var(--secondary));
+	color: var(--primary);
+	justify-content: flex-start;
+	align-items: center;
+	width: 100vw;
+	display: flex;
+	font-size: 2vw;
+	padding: 5vh 0 0 10vh;
+	z-index: 1;
+	text-transform: uppercase;
+}
+
+header a{
+	color: var(--primary);
+	text-decoration: none;
+
+}
+
+header .dropdown{
+	height: 5vw;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: flex-start;
+	padding: 0 1vw 0 1vw;
+	outline: dotted 0px var(--primary);
+}
+
+header .dropdown h2{
+	padding: 0;
+	margin: 1vh;
+}
+
+
+
+
+header h2:hover{
+	text-decoration: underline .2vw;
+	text-underline-offset: .2vw;
+}
+
+
+header #chrisIs{
+	text-decoration: none;
+/*	letter-spacing: .3vh;*/
+}
+
+header .dropdown-content {
+  	position: relative;
+  	background-color: var(--secondary);
+  	outline: dotted .3vh var(--primary);
+  	padding: inherit;
+  	margin: 0 0 2vw 0;
+  	z-index: 1;
+}
+
+ header .current{
+ 	font-weight: 100;
+ 	display: flex;
+ 	justify-content: space-between;
+ 	align-items: center;
+ 	width: 100%;
+ 	height: 100%;
+ }
+
+ header .current h2:first-of-type{
+ 	 	text-decoration: underline;
+ 	 	text-underline-offset: .2vw;
+ }
+
+ header input{
+ 	font-family: "FrGth-Cond";
+	display: flex;
+	justify-content: center;
+	background-color: transparent;
+	color: var(--primary);
+	width: auto;
+	height: 100%;
+	font-size: 3.2vw;
+	border: none;
+	text-transform: uppercase;
+}
+
+header input:hover{
+	text-decoration: underline;
+}
+
+.inactive{
+  display: none;
+}
+
+header .dropdown:hover{
+  cursor: pointer;
+  outline: dotted .3vh var(--primary);
+}
+
+header #arrow:hover{
+	text-decoration: none;
+}
+
+header change{
+	font-size: 3.2vw;
+}
+
+.chrisIsParent{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+@media screen and (max-width: 950px) {
+  header{
+  	font-size: 2.2vh;
+  	padding: 3vh 5vh;
+  	flex-direction: column;
+  	align-items: flex-start;
+  }
+
+  header .dropdown{
+  	padding: 1vw .5vw;
+  }
+  header .dropdown-content{
+  	margin: 1vh;
+  	padding: 1vw;
+  }
+
+  header change{
+  	font-size: 3.5vh;
+  }
+
+  header h2:hover{
+ 	 	text-decoration: underline;
+ 	 	text-underline-offset: .5vh;
+ }
+
+  header .current h2:first-of-type{
+ 	 	text-decoration: underline;
+ 	 	text-underline-offset: .5vh;
+ }
+}
+

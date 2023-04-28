@@ -1,0 +1,25 @@
+:root {
+  --primary: white;
+  --secondary: black;
+}
+
+.graphics{
+  color: #32a852;
+}
+.anim{
+ color: #a83232;
+}
+.web{
+  color:#327da8;
+}
+
+.skate{
+  color:#32a887;
+}
+
+.jack{
+  color: white;
+}
+ .enter{
+  color: #a86d32;
+ }

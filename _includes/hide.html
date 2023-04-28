@@ -1,0 +1,17 @@
+<script type="text/javascript">
+	let hideMe = document.querySelector(".hide");
+	let more = document.querySelector("#more");
+
+	let moreBool = true;
+	more.addEventListener("click", ()=>{
+		hideMe.classList.toggle("hide")
+		if(moreBool){
+			more.innerHTML="LESS"
+		}else{
+			more.innerHTML="MORE"
+		}
+		moreBool = !moreBool;
+
+	})
+
+</script>

@@ -1,0 +1,56 @@
+@font-face {
+  font-family: 'FrGth-Cond';
+  src:  url('../fonts/FranklinGothic-Condensed.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'FrGth-DemiCompr';
+  src:  url('../fonts/FranklinGothic-DemiCmpr.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'FrGth-DemiCond';
+  src:  url('../fonts/FRAMDCN.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'FrGth-Book';
+  src:  url('../fonts/FRABK.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'baldur';
+  src:  url('../fonts/baldur.ttf') format('ttf');
+}
+
+@font-face {
+  font-family: 'basteleur';
+  src:  url('../fonts/basteleur-bold.ttf') format('ttf');
+}
+
+@font-face {
+  font-family: 'bodoni-mt';
+  src:  url('../fonts/bodoni-cond.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'hobeaux-roco';
+  src:  url('../fonts/hobeaux_rococeaux.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'hobeaux';
+  src:  url('../fonts/hobeaux-reg.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'picnic';
+  src:  url('../fonts/picnic-reg.otf') format('otf');
+}
+
+@font-face {
+  font-family: 'sans-black';
+  src:  url('../fonts/sans-black.woff') format('woff');
+}
+
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300&display=swap');
