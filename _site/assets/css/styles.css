@@ -233,4 +233,8 @@ change p:hover{
 		opacity: .5;
 	}
 
+	footer h2{
+		display: none;
+	}
+
 }
